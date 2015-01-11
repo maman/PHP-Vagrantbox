@@ -10,6 +10,8 @@ data = configValues['vagrantfile-local']
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.landrush.enabled = true
+  config.landrush.tld = 'vm'
   config.vm.box = "#{data['vm']['box']}"
   config.vm.box_url = "#{data['vm']['box_url']}"
 
