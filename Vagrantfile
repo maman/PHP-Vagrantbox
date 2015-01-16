@@ -12,6 +12,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.landrush.enabled = true
   config.landrush.tld = 'vm'
+  config.landrush.guest_redirect_dns = false
   config.vm.box = "#{data['vm']['box']}"
   config.vm.box_url = "#{data['vm']['box_url']}"
 
@@ -61,6 +62,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         end
 
         if key == "natdnshostresolver1"
+          value = value ? "on" : "off"
+        end
+
+        if key == "natdnsproxy1"
           value = value ? "on" : "off"
         end
 
